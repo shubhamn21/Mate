@@ -1,0 +1,2 @@
+# Mate
+We are developing a knowledge hub for students to access, share, pass down information and resources to future students. The website would store and maintain UCI keystone, capstone and hackathon projects made by students. The project page would display an overview, codebase via github, video demo and an agile tracker. Project owners could ask for upvotes, funding, reviews or contributions for further enhancement. Additionally the course connect tool would help in visualising course dependencies to help new students pick courses from general catalogue.
