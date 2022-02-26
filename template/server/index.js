@@ -33,19 +33,19 @@ app.use(
 );
 
 const db = mysql.createConnection({
-  user: "sh_admin",
-  host: "0.0.0.0",
-  password: "admin",
+  user: "root",
+  host: "localhost",
+  password: "root",
   database: "student_helper",
 });
 
-// app.get("/login", (req, res) => {
-//   if (req.session.user) {
-//     res.send({ loggedIn: true, user: req.session.user });
-//   } else {
-//     res.send({ loggedIn: false });
-//   }
-// });
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
 
 app.post("/login", (req, res) => {
   const username = req.body.username;
@@ -76,6 +76,6 @@ app.post("/login", (req, res) => {
   );
 });
 
-app.listen(3001, () => {
+app.listen(3306, () => {
   console.log("running server");
 });
