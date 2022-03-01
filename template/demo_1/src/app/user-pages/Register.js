@@ -10,7 +10,7 @@ export class Register extends Component {
             <div className="col-lg-4 mx-auto">
               <div className="card text-left py-5 px-4 px-sm-5">
                 <div className="brand-logo">
-                  <img src={require("../../assets/images/logo.svg")} alt="logo" />
+                  <center><img src={require("../../assets/images/logo2.png")} alt="logo" /></center>
                 </div>
                 <h4>New here?</h4>
                 <h6 className="font-weight-light">Signing up is easy. It only takes a few steps</h6>
@@ -47,7 +47,7 @@ export class Register extends Component {
                     <Link className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" to="/dashboard">SIGN UP</Link>
                   </div>
                   <div className="text-center mt-4 font-weight-light">
-                    Already have an account? <Link to="/user-pages/login" className="text-primary">Login</Link>
+                    Already have an account? <Link to="/user-pages/login-1" className="text-primary">Login</Link>
                   </div>
                 </form>
               </div>

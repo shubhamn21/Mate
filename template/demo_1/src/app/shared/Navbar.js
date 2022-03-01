@@ -14,7 +14,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar p-0 fixed-top d-flex flex-row">
         <div className="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-          <Link className="navbar-brand brand-logo-mini" to="/"><img src={require('../../assets/images/logo-mini.svg')} alt="logo" /></Link>
+          <Link to="/"><img src={require("../../assets/images/logo2.png")} alt="logo" /></Link>
         </div>
         <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
           <button className="navbar-toggler align-self-center" type="button" onClick={ () => document.body.classList.toggle('sidebar-icon-only') }>
@@ -23,7 +23,7 @@ class Navbar extends Component {
           <ul className="navbar-nav w-100">
             <li className="nav-item w-100">
               <form className="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                <input type="text" className="form-control" placeholder="Search products" />
+                <input type="text" className="form-control" placeholder="Search Project" />
               </form>
             </li>
           </ul>
@@ -43,7 +43,9 @@ class Navbar extends Component {
                       </div>
                     </div>
                     <div className="preview-item-content">
+                      <Link to="/user-pages/project">
                       <p className="preview-subject ellipsis mb-1"><Trans>Software Development</Trans></p>
+                      </Link>
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Divider />
@@ -72,63 +74,7 @@ class Navbar extends Component {
                   <p className="p-3 mb-0 text-center"><Trans>See all projects</Trans></p>
                 </Dropdown.Menu>
               </Dropdown>
-            <li className="nav-item d-none d-lg-block">
-              <a className="nav-link" href="!#" onClick={event => event.preventDefault()}>
-                <i className="mdi mdi-view-grid"></i>
-              </a>
-            </li>
-            <Dropdown alignRight as="li" className="nav-item border-left" >
-              <Dropdown.Toggle as="a" className="nav-link count-indicator cursor-pointer">
-                <i className="mdi mdi-email"></i>
-                <span className="count bg-success"></span>
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="navbar-dropdown preview-list">
-                  <h6 className="p-3 mb-0"><Trans>Messages</Trans></h6>
-                  <Dropdown.Divider />
-                  <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()} className="preview-item">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-dark rounded-circle">
-                        <img src={require('../../assets/images/faces/face4.jpg')} alt="profile" className="rounded-circle profile-pic" />
-                      </div>
-                    </div>
-                    <div className="preview-item-content">
-                      <p className="preview-subject ellipsis mb-1"><Trans>Mark send you a message</Trans></p>
-                      <p className="text-muted mb-0"> 1 <Trans>Minutes ago</Trans> </p>
-                    </div>
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()} className="preview-item">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-dark rounded-circle">
-                        <img src={require('../../assets/images/faces/face2.jpg')} alt="profile" className="rounded-circle profile-pic" />
-                      </div>
-                    </div>
-                    <div className="preview-item-content">
-                      <p className="preview-subject ellipsis mb-1"><Trans>Cregh send you a message</Trans></p>
-                      <p className="text-muted mb-0"> 15 <Trans>Minutes ago</Trans> </p>
-                    </div>
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()} className="preview-item">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-dark rounded-circle">
-                        <img src={require('../../assets/images/faces/face3.jpg')} alt="profile" className="rounded-circle profile-pic" />
-                      </div>
-                    </div>
-                    <div className="preview-item-content">
-                      <p className="preview-subject ellipsis mb-1"><Trans>Profile picture updated</Trans></p>
-                      <p className="text-muted mb-0"> 18 <Trans>Minutes ago</Trans> </p>
-                    </div>
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <p className="p-3 mb-0 text-center">4 <Trans>new messages</Trans></p>
-                </Dropdown.Menu>
-            </Dropdown>
             <Dropdown alignRight as="li" className="nav-item border-left">
-              <Dropdown.Toggle as="a" className="nav-link count-indicator cursor-pointer">
-                <i className="mdi mdi-bell"></i>
-                <span className="count bg-danger"></span>
-              </Dropdown.Toggle>
               <Dropdown.Menu className="dropdown-menu navbar-dropdown preview-list">
                 <h6 className="p-3 mb-0"><Trans>Notifications</Trans></h6>
                 <Dropdown.Divider />
@@ -187,18 +133,6 @@ class Navbar extends Component {
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="navbar-dropdown preview-list navbar-profile-dropdown-menu">
-                <h6 className="p-3 mb-0"><Trans>Profile</Trans></h6>
-                <Dropdown.Divider />
-                <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()} className="preview-item">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-settings text-success"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <p className="preview-subject mb-1"><Trans>Settings</Trans></p>
-                  </div>
-                </Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()}  className="preview-item">
                   <div className="preview-thumbnail">
@@ -211,7 +145,6 @@ class Navbar extends Component {
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <p className="p-3 mb-0 text-center"><Trans>Advanced settings</Trans></p>
               </Dropdown.Menu>
             </Dropdown>
           </ul>

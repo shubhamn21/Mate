@@ -22,7 +22,11 @@ const Error500 = lazy(() => import('./error-pages/Error500'));
 
 const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
-
+const Project = lazy(() => import('./user-pages/project'));
+const AllProject = lazy(() => import('./user-pages/all_projects'));
+const Courses = lazy(() => import('./user-pages/courses'));
+const Ideas = lazy(() => import('./user-pages/ideas'));
+const Resources = lazy(() => import('./user-pages/resources'));
 
 class AppRoutes extends Component {
   render () {
@@ -49,7 +53,11 @@ class AppRoutes extends Component {
 
           <Route path="/error-pages/error-404" component={ Error404 } />
           <Route path="/error-pages/error-500" component={ Error500 } />
-
+          <Route path="/user-pages/project" component={ Project } />
+          <Route path="/user-pages/all_projects" component={ AllProject } />
+          <Route path="/user-pages/courses" component={ Courses } />
+          <Route path="/user-pages/ideas" component={ Ideas } />
+          <Route path="/user-pages/resources" component={ Resources } />
 
           <Redirect to="/dashboard" />
         </Switch>
