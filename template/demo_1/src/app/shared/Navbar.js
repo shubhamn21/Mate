@@ -56,7 +56,9 @@ class Navbar extends Component {
                       </div>
                     </div>
                     <div className="preview-item-content">
+                      <Link to="/user-pages/project">
                       <p className="preview-subject ellipsis mb-1"><Trans>UI Development</Trans></p>
+                      </Link>
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Divider />
@@ -67,11 +69,15 @@ class Navbar extends Component {
                       </div>
                     </div>
                     <div className="preview-item-content">
+                      <Link to="/user-pages/project">
                       <p className="preview-subject ellipsis mb-1"><Trans>Software Testing</Trans></p>
+                      </Link>
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Divider />
+                  <Link to="/user-pages/all_projects">
                   <p className="p-3 mb-0 text-center"><Trans>See all projects</Trans></p>
+                  </Link>
                 </Dropdown.Menu>
               </Dropdown>
             <Dropdown alignRight as="li" className="nav-item border-left">
@@ -127,7 +133,7 @@ class Navbar extends Component {
               <Dropdown.Toggle as="a" className="nav-link cursor-pointer no-caret">
                 <div className="navbar-profile">
                   <img className="img-xs rounded-circle" src={require('../../assets/images/faces/face15.jpg')} alt="profile" />
-                  <p className="mb-0 d-none d-sm-block navbar-profile-name"><Trans>Henry Klein</Trans></p>
+                  <p className="mb-0 d-none d-sm-block navbar-profile-name"><Trans>Justin</Trans></p>
                   <i className="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>
               </Dropdown.Toggle>
