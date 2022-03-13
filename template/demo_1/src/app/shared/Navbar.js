@@ -90,7 +90,9 @@ export default function Navbar (){
                       </div>
                     </div>
                     <div className="preview-item-content">
+                      <Link to="/user-pages/project">
                       <p className="preview-subject ellipsis mb-1"><Trans>UI Development</Trans></p>
+                      </Link>
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Divider />
@@ -101,11 +103,15 @@ export default function Navbar (){
                       </div>
                     </div>
                     <div className="preview-item-content">
+                      <Link to="/user-pages/project">
                       <p className="preview-subject ellipsis mb-1"><Trans>Software Testing</Trans></p>
+                      </Link>
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Divider />
+                  <Link to="/user-pages/all_projects">
                   <p className="p-3 mb-0 text-center"><Trans>See all projects</Trans></p>
+                  </Link>
                 </Dropdown.Menu>
               </Dropdown>
             <Dropdown alignRight as="li" className="nav-item border-left">
