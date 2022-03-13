@@ -1,37 +1,97 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, Link, Route, Switch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Axios from "axios";
 import { Form } from 'react-bootstrap';
+import { BrowserRouter } from "react-router-dom";
 
 export default function Login (){
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [loginStatus, setLoginStatus] = useState("");
 
-  Axios.defaults.withCredentials = true;
+  // Axios.defaults.withCredentials = true;
 
-  const login = () => {
-    Axios.post("http://localhost:3001/login", {
-      username: username,
-      password: password,
-    }).then((response) => {
-      if (response.data.message) {
-        setLoginStatus(response.data.message);
-      } else {
-        setLoginStatus(response.data[0].username);
-      }
-    });
-  };
+  // const login = () => {
+  //   Axios.post("http://localhost:3001/login", {
+  //     username: username,
+  //     password: password,
+  //   }).then((response) => {
+  //     if (response.data.message) {
+  //       setLoginStatus(response.data.message);
+  //     } else {
+  //       setLoginStatus(response.data[0].username);
+  //     }
+  //   });
+  // };
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
-      if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.user[0].username);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("http://localhost:3001/login").then((response) => {
+  //     if (response.data.loggedIn == true) {
+  //       setLoginStatus(response.data.user[0].username);
+  //     }
+  //   });
+  // }, []);
+
+
+
+
+
+    const [usernameReg, setUsernameReg] = useState("");
+    const [passwordReg, setPasswordReg] = useState("");
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [loginStatus, setLoginStatus] = useState("");
+
+    Axios.defaults.withCredentials = true;
+
+    const register = () => {
+      Axios.post("http://localhost:3001/register", {
+        username: usernameReg,
+        password: passwordReg,
+        fname: "MiloniTest",
+        lname:"MILONITEST",
+      }).then((response) => {
+        console.log(response);
+      });
+    };
+
+    
+    // let navigate = useNavigate();
+    let history = useHistory();
+
+    const login = () => {
+      Axios.post("http://localhost:3001/login", {
+        username: username,
+        password: password,
+      }).then((response) => {
+
+        alert("login called");
+        if(response.data.message){
+          setLoginStatus(response.data.message)
+        }
+        else{
+          // navigate("/dashboard");
+          setLoginStatus(response.data[0].first_name)
+        }
+      });
+    };
+
+    useEffect(() => {
+      Axios.get("http://localhost:3001/login").then((response) => {
+        console.log(response);  
+      if (response.data.loggedIn === true) {
+          // return <Redirect to='/dashboard' />
+          history.push('/dashboard');
+          // navigate("/dashboard");
+          setLoginStatus(response.data.user[0].first_name);
+        }
+      });
+    }, []);
 
     return (
       <div>
@@ -51,14 +111,14 @@ export default function Login (){
                     <Form.Control type="password" placeholder="Password" size="lg" className="h-auto" onChange={(e) => {setPassword(e.target.value);}}/>
                   </Form.Group>
                   <div className="mt-3">
-                    <button className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"  onClick='{login}'>SIGN IN</button>
+                    <button className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"  onClick={login}>SIGN IN</button>
                   </div>
                   <div className="text-center mt-4 font-weight-light">
                     Dont have an account? <Link to="/user-pages/register-1" className="text-primary">Register</Link>
                   </div>
                 </Form>
               </div>
-              <h1>{loginStatus}</h1>
+               {/* <h1>{loginStatus}</h1> */}
             </div>
           </div>
         </div>
