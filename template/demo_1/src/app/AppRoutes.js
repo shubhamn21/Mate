@@ -27,6 +27,7 @@ const AllProject = lazy(() => import('./user-pages/all_projects'));
 const Courses = lazy(() => import('./user-pages/courses'));
 const Ideas = lazy(() => import('./user-pages/ideas'));
 const Resources = lazy(() => import('./user-pages/resources'));
+const SingleProject = lazy(() => import('./user-pages/single_project'));
 
 class AppRoutes extends Component {
   render () {
@@ -58,6 +59,7 @@ class AppRoutes extends Component {
           <Route path="/user-pages/courses" component={ Courses } />
           <Route path="/user-pages/ideas" component={ Ideas } />
           <Route path="/user-pages/resources" component={ Resources } />
+          <Route path="/user-pages/single-project" component={ SingleProject } />
 
           <Redirect to="/dashboard" />
         </Switch>
