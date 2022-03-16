@@ -5,16 +5,7 @@ import { Form } from 'react-bootstrap';
 import { TodoListComponent } from '../apps/TodoList'
 import { VectorMap } from "react-jvectormap"
 
-const mapData = {
-  "BZ": 75.00,
-  "US": 56.25,
-  "AU": 15.45,
-  "GB": 25.00,
-  "RO": 10.25,
-  "GE": 33.25
-}
-
-export class Dashboard extends Component {
+export class Project extends Component {
 
 
   render () {
@@ -38,8 +29,25 @@ export class Dashboard extends Component {
                 <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Student id should be 8 digit" />
               </Form.Group>
               <Form.Group>
-                <label htmlFor="exampleInputCity1">Group Id</label>
-                <Form.Control type="text" className="form-control" id="exampleInputCity1" placeholder="Group Id" />
+                <label htmlFor="exampleGroupMem1">Email address of group members</label>
+                <div className="input-group">
+                <Form.Control type="text" className="form-control" placeholder="Group Member 1 Email" aria-label="Group Member 1" aria-describedby="basic-addon2" />
+                  <div className="input-group-append">
+                    <button className="btn btn-sm btn-primary" type="button">Add</button>
+                  </div>
+                </div>
+                <div className="input-group">
+                <Form.Control type="text" className="form-control" placeholder="Group Member 2 Email" aria-label="Group Member 1" aria-describedby="basic-addon2" />
+                  <div className="input-group-append">
+                    <button className="btn btn-sm btn-primary" type="button">Add</button>
+                  </div>
+                </div>
+                <div className="input-group">
+                <Form.Control type="text" className="form-control" placeholder="Group Member 3 Email" aria-label="Group Member 1" aria-describedby="basic-addon2" />
+                  <div className="input-group-append">
+                    <button className="btn btn-sm btn-primary" type="button">Add</button>
+                  </div>
+                </div>
               </Form.Group>
               <Form.Group>
                 <label htmlFor="exampleSelectGender">Status</label>
@@ -47,6 +55,14 @@ export class Dashboard extends Component {
                   <option>Completed</option>
                   <option>Ongoing</option>
                 </select>
+              </Form.Group>
+              <Form.Group>
+                <label htmlFor="exampleGithub">Github URL</label>
+                <Form.Control type="text" className="form-control" id="exampleGithub" placeholder="Enter Github URL" />
+              </Form.Group>
+              <Form.Group>
+                <label htmlFor="exampleVideo">Video URL</label>
+                <Form.Control type="text" className="form-control" id="exampleVideo" placeholder="Enter YouTube URL" />
               </Form.Group>
               <Form.Group>
                 <label>File upload</label>
@@ -74,4 +90,4 @@ export class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default Project;
