@@ -1,16 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component,useEffect,useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Trans } from 'react-i18next';
 
-class Navbar extends Component {
-  toggleOffcanvas() {
+import Axios from "axios";
+// import React, { Component, useEffect, useState } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+
+
+ 
+
+
+
+export default function Navbar (){
+
+   function toggleOffcanvas () {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
   }
-  toggleRightSidebar() {
+  function toggleRightSidebar() {
     document.querySelector('.right-sidebar').classList.toggle('open');
   }
-  render () {
+
+      // let history = useHistory();
+  const [name, setLoginStatus] = useState("");
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+          console.log(response);  
+        if (response.data.loggedIn === true) {
+            console.log(response);
+            var name = response.data.user[0].first_name.concat(" ", response.data.user[0].last_name);
+            setLoginStatus(name);
+        }
+        else{
+          // navigate("/registration");
+          console.log("not logged in");
+          // return <Redirect to="/user-pages/login-1"/>;
+          // history.push("/user-pages/login-1")
+        }
+        });
+    }, []);
+
+
+  // render () {
     return (
       <nav className="navbar p-0 fixed-top d-flex flex-row">
         <div className="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
@@ -56,8 +90,13 @@ class Navbar extends Component {
             <Dropdown alignRight as="li" className="nav-item">
               <Dropdown.Toggle as="a" className="nav-link cursor-pointer no-caret">
                 <div className="navbar-profile">
+<<<<<<< HEAD
                   <img className="img-xs rounded-circle" src={require('../../assets/images/circle.png')} alt="profile" />
                   <p className="mb-0 d-none d-sm-block navbar-profile-name"><Trans>Justin</Trans></p>
+=======
+                  <img className="img-xs rounded-circle" src={require('../../assets/images/faces/face15.jpg')} alt="profile" />
+                  <p className="mb-0 d-none d-sm-block navbar-profile-name"><Trans>{name}</Trans></p>
+>>>>>>> c6274a434f936688886d0760c37715e389b61164
                   <i className="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>
               </Dropdown.Toggle>
@@ -78,13 +117,12 @@ class Navbar extends Component {
               </Dropdown.Menu>
             </Dropdown>
           </ul>
-          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={this.toggleOffcanvas}>
+          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={toggleOffcanvas}>
             <span className="mdi mdi-format-line-spacing"></span>
           </button>
         </div>
       </nav>
     );
-  }
+  // }
 }
 
-export default Navbar;

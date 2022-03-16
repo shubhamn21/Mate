@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component,useEffect,useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Slider from "react-slick";
 import { TodoListComponent } from '../apps/TodoList'
 import { VectorMap } from "react-jvectormap"
+import Axios from "axios";
+// import React, { Component, useEffect, useState } from 'react';
+import { Redirect, Link, Route, Switch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const mapData = {
   "BZ": 75.00,
@@ -13,10 +17,44 @@ const mapData = {
   "GE": 33.25
 }
 
-export class Dashboard extends Component {
+  
 
 
-  render () {
+    // let navigate = useNavigate();
+    // let { username } = useParams();
+
+
+
+
+
+export default function Dashboard (){
+
+
+
+    
+    let history = useHistory();
+  const [name, setLoginStatus] = useState("");
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+          console.log(response);  
+        if (response.data.loggedIn === true) {
+            console.log(response);
+            var name = response.data.user[0].first_name + " " + response.data.user[0].last_name
+            setLoginStatus(response.data.user[0].first_name);
+        }
+        else{
+          // navigate("/registration");
+          console.log("not logged in");
+          // return <Redirect to="/user-pages/login-1"/>;
+          history.push("/user-pages/login-1")
+        }
+        });
+    }, []);
+
+
+
+  // render () {
     return (
       <div>
         <div className="row">
@@ -124,7 +162,7 @@ export class Dashboard extends Component {
         </div>
       </div>
     );
-  }
+  // }
 }
 
-export default Dashboard;
+// export default Dashboard;
