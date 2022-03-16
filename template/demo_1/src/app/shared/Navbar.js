@@ -26,22 +26,22 @@ export default function Navbar (){
       // let history = useHistory();
   const [name, setLoginStatus] = useState("");
 
-    useEffect(() => {
-        Axios.get("http://localhost:3001/login").then((response) => {
-          console.log(response);  
-        if (response.data.loggedIn === true) {
-            console.log(response);
-            var name = response.data.user[0].first_name.concat(" ", response.data.user[0].last_name);
-            setLoginStatus(name);
-        }
-        else{
-          // navigate("/registration");
-          console.log("not logged in");
-          // return <Redirect to="/user-pages/login-1"/>;
-          // history.push("/user-pages/login-1")
-        }
-        });
-    }, []);
+    // useEffect(() => {
+    //     Axios.get("http://localhost:3001/login").then((response) => {
+    //       console.log(response);  
+    //     if (response.data.loggedIn === true) {
+    //         console.log(response);
+    //         var name = response.data.user[0].first_name.concat(" ", response.data.user[0].last_name);
+    //         setLoginStatus(name);
+    //     }
+    //     else{
+    //       // navigate("/registration");
+    //       console.log("not logged in");
+    //       // return <Redirect to="/user-pages/login-1"/>;
+    //       // history.push("/user-pages/login-1")
+    //     }
+    //     });
+    // }, []);
 
 
   // render () {

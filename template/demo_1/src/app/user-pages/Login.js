@@ -36,7 +36,7 @@ export default function Login (){
   // }, []);
 
 
-
+  // console.log("bleh");
 
 
     const [usernameReg, setUsernameReg] = useState("");
@@ -46,6 +46,7 @@ export default function Login (){
     const [password, setPassword] = useState("");
 
     const [loginStatus, setLoginStatus] = useState("");
+    const [responseStatus, setCurrStatus] = useState(""); 
 
     Axios.defaults.withCredentials = true;
 
@@ -65,33 +66,59 @@ export default function Login (){
     let history = useHistory();
 
     const login = () => {
-      Axios.post("http://localhost:3001/login", {
+      
+      
+      // setStatus(1000);
+      // alert("login called");
+      fetch("http://localhost:3001/auth/login", {
+        method: 'POST',
         username: username,
         password: password,
       }).then((response) => {
+        return response.json() 
+     }).then((responseData) => {
+        // console.log(responseData);
+        var temp = responseData.currstatus;
+        alert(temp);
+        setCurrStatus(temp);
+        alert(responseStatus);
 
-        alert("login called");
-        if(response.data.message){
-          setLoginStatus(response.data.message)
+        if(responseStatus == 400){
+          setLoginStatus(responseData.message)
         }
-        else{
-          // navigate("/dashboard");
-          setLoginStatus(response.data[0].first_name)
-        }
+
+        
+        return responseData;
+
       });
+      
+      
+      // .then((response) => {
+        
+      //   console.log("login called got response");
+      //   console.log(response.json());
+      //   alert(response.body.message);
+      //   // if(response.data.message){
+      //   //   setLoginStatus(response.data.message)
+      //   // }
+      //   // else{
+      //   //   // navigate("/dashboard");
+      //   //   setLoginStatus(response.data[0].first_name)
+      //   // }
+      // });
     };
 
-    useEffect(() => {
-      Axios.get("http://localhost:3001/login").then((response) => {
-        console.log(response);  
-      if (response.data.loggedIn === true) {
-          // return <Redirect to='/dashboard' />
-          history.push('/dashboard');
-          // navigate("/dashboard");
-          setLoginStatus(response.data.user[0].first_name);
-        }
-      });
-    }, []);
+    // useEffect(() => {
+    //   Axios.get("http://localhost:3001/login").then((response) => {
+    //     console.log(response);  
+    //   if (response.data.loggedIn === true) {
+    //       // return <Redirect to='/dashboard' />
+    //       history.push('/dashboard');
+    //       // navigate("/dashboard");
+    //       setLoginStatus(response.data.user[0].first_name);
+    //     }
+    //   });
+    // }, []);
 
     return (
       <div>
@@ -118,7 +145,7 @@ export default function Login (){
                   </div>
                 </Form>
               </div>
-               {/* <h1>{loginStatus}</h1> */}
+               <h1>{loginStatus}</h1>
             </div>
           </div>
         </div>
