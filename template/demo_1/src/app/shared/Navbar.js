@@ -90,13 +90,8 @@ export default function Navbar (){
             <Dropdown alignRight as="li" className="nav-item">
               <Dropdown.Toggle as="a" className="nav-link cursor-pointer no-caret">
                 <div className="navbar-profile">
-<<<<<<< HEAD
-                  <img className="img-xs rounded-circle" src={require('../../assets/images/circle.png')} alt="profile" />
-                  <p className="mb-0 d-none d-sm-block navbar-profile-name"><Trans>Justin</Trans></p>
-=======
                   <img className="img-xs rounded-circle" src={require('../../assets/images/faces/face15.jpg')} alt="profile" />
                   <p className="mb-0 d-none d-sm-block navbar-profile-name"><Trans>{name}</Trans></p>
->>>>>>> c6274a434f936688886d0760c37715e389b61164
                   <i className="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>
               </Dropdown.Toggle>
